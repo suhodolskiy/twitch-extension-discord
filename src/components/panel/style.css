@@ -1,0 +1,162 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  padding: 0 16px;
+  height: 46px;
+
+  background-image: linear-gradient(
+    180deg,
+    var(--color-primary) 50%,
+    rgba(31, 34, 36, 0) 100%
+  );
+}
+
+.online {
+  color: var(--color-gray);
+  font-size: 12px;
+}
+
+.online:after {
+  content: '';
+
+  display: inline-block;
+  margin-left: 3px;
+  height: 8px;
+  width: 8px;
+
+  border-radius: 50%;
+  background: var(--color-green);
+}
+
+h1 {
+  margin: 0 0 5px;
+  font-size: 14px;
+}
+
+p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 0;
+
+  font-size: 13px;
+  color: var(--color-gray);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+  padding: 10px 15px;
+  background: var(--color-eerie-black);
+  border-radius: 10px 10px 0 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  height: 126px;
+  width: 126px;
+
+  border: 1px;
+  border-radius: 50%;
+
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.avatar {
+  position: absolute;
+  z-index: 1;
+
+  height: 27px;
+  width: 27px;
+
+  background-size: cover;
+  background-color: var(--color-onyx);
+  border-radius: 50%;
+
+  animation-name: rotateNegative;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.logo {
+  display: block;
+  z-index: 1;
+  cursor: pointer;
+
+  width: 80px;
+  height: 80px;
+
+  background-size: cover;
+  border-radius: 50%;
+
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.error {
+  background: #fd3b3b;
+  padding: 5px 15px;
+  margin: 10px -15px -10px;
+
+  font-size: 13px;
+  color: #fff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateNegative {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
