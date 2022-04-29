@@ -2,24 +2,39 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
-    <title>
-      <%= htmlWebpackPlugin.options.title %>
-    </title>
+    <title> <%= htmlWebpackPlugin.options.title %> </title>
   </head>
 
   <body>
     <div class="app">
       <header>
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="26" viewBox="0 0 23 26" version="1.1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="23"
+          height="26"
+          viewBox="0 0 23 26"
+          version="1.1"
+        >
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-372.000000, -18.000000)">
               <g transform="translate(372.000000, 18.000000)">
-                <rect fill="#FFFFFF" x="2.6" y="2.6" width="18.2" height="17.3" />
+                <rect
+                  fill="#FFFFFF"
+                  x="2.6"
+                  y="2.6"
+                  width="18.2"
+                  height="17.3"
+                />
                 <path
                   d="M13.8 10.8C13.1 10.8 12.5 11.5 12.5 12.3 12.5 13.1 13.1 13.7 13.8 13.7 14.5 13.7 15.1 13.1 15.1 12.3 15.1 11.5 14.5 10.8 13.8 10.8ZM9 10.8C8.3 10.8 7.7 11.5 7.7 12.3 7.7 13.1 8.3 13.7 9 13.7 9.8 13.7 10.4 13.1 10.4 12.3 10.4 11.5 9.8 10.8 9 10.8ZM20.1 0L2.7 0C1.2 0 0 1.2 0 2.7L0 20.1C0 21.6 1.2 22.8 2.7 22.8L17.4 22.8 16.7 20.4 18.4 21.9 20 23.4 22.8 25.8 22.8 2.7C22.8 1.2 21.6 0 20.1 0ZM15.1 16.9C15.1 16.9 14.6 16.3 14.2 15.8 15.9 15.3 16.6 14.3 16.6 14.3 16.1 14.6 15.6 14.9 15.1 15.1 14.4 15.3 13.8 15.5 13.2 15.6 12 15.9 10.8 15.8 9.8 15.6 9.1 15.5 8.5 15.3 7.9 15 7.6 14.9 7.3 14.8 7 14.6 6.9 14.6 6.9 14.6 6.9 14.5 6.8 14.5 6.8 14.5 6.8 14.5 6.6 14.4 6.4 14.3 6.4 14.3 6.4 14.3 7.1 15.3 8.7 15.8 8.3 16.3 7.8 16.9 7.8 16.9 5 16.8 3.9 14.9 3.9 14.9 3.9 10.8 5.7 7.4 5.7 7.4 7.6 6 9.4 6 9.4 6L9.5 6.2C7.2 6.9 6.1 7.9 6.1 7.9 6.1 7.9 6.4 7.7 6.9 7.5 8.3 6.9 9.4 6.7 9.8 6.7 9.9 6.7 10 6.7 10.1 6.7 10.8 6.6 11.7 6.5 12.7 6.6 13.9 6.8 15.3 7.2 16.6 7.9 16.6 7.9 15.6 6.9 13.4 6.2L13.5 6C13.5 6 15.3 6 17.2 7.4 17.2 7.4 19.1 10.8 19.1 14.9 19.1 14.9 18 16.8 15.1 16.9L15.1 16.9Z"
-                  fill="#7289DA" fill-rule="nonzero" />
+                  fill="#7289DA"
+                  fill-rule="nonzero"
+                />
               </g>
             </g>
           </g>
@@ -29,30 +44,70 @@
       <form>
         <div class="field">
           <label for="server-id">Server ID</label>
-          <input type="text" required placeholder="Please type server ID" id="server-id">
-          <a class="link-help" href="https://github.com/suhodolskiy/twitch-extension-discord#configuration-guide" target="_blank">Configuration Guide</a>
+          <input
+            type="text"
+            required
+            placeholder="Please type server ID"
+            id="server-id"
+          />
+          <a
+            class="link-help"
+            href="https://github.com/suhodolskiy/twitch-extension-discord#configuration-guide"
+            target="_blank"
+          >
+            Configuration Guide
+          </a>
+        </div>
+
+        <div class="field">
+          <label for="link">Link</label>
+          <input
+            type="url"
+            required
+            placeholder="Please type link"
+            pattern="^(http|https)://bit.ly/.+"
+            id="link"
+            class="text-blue"
+          />
         </div>
         <div class="field">
           <label for="avatar-url">Logotype url</label>
-          <input type="text" placeholder="Please type logotype url" id="logo-url">
+          <input
+            type="url"
+            placeholder="Please type logotype url"
+            id="logo-url"
+            class="text-blue"
+          />
         </div>
         <div class="field">
           <label for="description">Description</label>
-          <textarea id="description" rows="3" maxlength="150" placeholder="Description"></textarea>
+          <textarea
+            id="description"
+            rows="3"
+            maxlength="150"
+            placeholder="Description"
+          ></textarea>
         </div>
         <button class="btn" type="submit">Save</button>
       </form>
 
       <footer>
-        <a class="link-profile" href="https://twitch.tv/suhodolskiy" target="_blank">Powered by <span>@suhodolskiy</span></a>
-        <a class="link-repo" href="https://github.com/suhodolskiy/twitch-extension-discord" target="_blank">
+        <a
+          class="link-profile"
+          href="https://twitch.tv/suhodolskiy"
+          target="_blank"
+          >Powered by <span>@suhodolskiy</span></a
+        >
+        <a
+          class="link-repo"
+          href="https://github.com/suhodolskiy/twitch-extension-discord"
+          target="_blank"
+        >
           github.com/suhodolskiy/twitch-extension-discord
         </a>
       </footer>
     </div>
 
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
   </body>
 </html>

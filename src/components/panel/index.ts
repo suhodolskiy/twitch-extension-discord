@@ -113,6 +113,14 @@ twitch.onAuthorized().then(async () => {
     return
   }
 
+  if (config.link) {
+    const links = document.getElementsByTagName('a')
+
+    for (let i = 0; i < links.length; i++) {
+      links[i].setAttribute('href', config.link)
+    }
+  }
+
   if (config.description) {
     document.getElementById('desc').innerHTML = config.description
   }
@@ -127,17 +135,6 @@ twitch.onAuthorized().then(async () => {
   document.getElementById(
     'online'
   ).innerHTML = `${guild.presence_count} members`
-
-  /**
-   * Set href with invite for all links
-   */
-  if (guild.instant_invite) {
-    const links = document.getElementsByTagName('a')
-
-    for (let i = 0; i < links.length; i++) {
-      links[i].setAttribute('href', guild.instant_invite)
-    }
-  }
 
   /**
    * Set alt with channel name for all images
@@ -170,6 +167,11 @@ twitch.onAuthorized().then(async () => {
   ]
 
   const content = document.getElementById('content')
+
+  /**
+   *
+   */
+  content.style.marginBottom = `${footer.offsetHeight * 0.4}px`
 
   const members = guild.members.filter((member) => member.avatar_url)
 

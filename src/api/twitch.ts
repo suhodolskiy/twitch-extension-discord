@@ -1,6 +1,7 @@
 const twitch = window.Twitch ? window.Twitch.ext : null
 
 interface Config {
+  link?: string
   logoUrl?: string
   serverId?: string
   description?: string

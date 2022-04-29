@@ -29,6 +29,7 @@ body {
   justify-content: center;
   box-sizing: border-box;
 
+  cursor: pointer;
   height: 35px;
   width: 100%;
 

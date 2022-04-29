@@ -6,6 +6,7 @@ import { asyncTimeout } from '../../libs/utils'
 
 const form = document.querySelector('form')
 const button = document.querySelector('button')
+const inputLink = document.getElementById('link') as HTMLInputElement
 const inputLogoUrl = document.getElementById('logo-url') as HTMLInputElement
 const inputServerId = document.getElementById('server-id') as HTMLInputElement
 const inputDescription = document.getElementById(
@@ -14,6 +15,10 @@ const inputDescription = document.getElementById(
 
 twitch.onAuthorized().then(async () => {
   const config = await twitch.getConfig()
+
+  if (config.link) {
+    inputLink.value = config.link
+  }
 
   if (config.serverId) {
     inputServerId.value = config.serverId
@@ -30,6 +35,7 @@ twitch.onAuthorized().then(async () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
+    config.link = inputLink.value
     config.logoUrl = inputLogoUrl.value
     config.serverId = inputServerId.value
     config.description = inputDescription.value
